@@ -18,6 +18,7 @@
 		8B593D9523ACEA050090AC60 /* DatastoreViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */; };
 		8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA323ACEAB90090AC60 /* Datastore */; };
 		8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */; };
+		8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA823AD2A0C0090AC60 /* DatastoreKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */,
+				8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,7 @@
 				8B593D8823ACEA050090AC60 /* DatastoreViewerTests */,
 				8B593D9323ACEA050090AC60 /* DatastoreViewerUITests */,
 				8B593D6E23ACEA040090AC60 /* Products */,
+				8B593DA723AD2A0C0090AC60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +139,13 @@
 			path = DatastoreViewerUITests;
 			sourceTree = "<group>";
 		};
+		8B593DA723AD2A0C0090AC60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,6 +164,7 @@
 			name = DatastoreViewer;
 			packageProductDependencies = (
 				8B593DA323ACEAB90090AC60 /* Datastore */,
+				8B593DA823AD2A0C0090AC60 /* DatastoreKit */,
 			);
 			productName = DatastoreViewer;
 			productReference = 8B593D6D23ACEA040090AC60 /* DatastoreViewer.app */;
@@ -623,6 +634,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8B593DA223ACEAB90090AC60 /* XCRemoteSwiftPackageReference "Datastore" */;
 			productName = Datastore;
+		};
+		8B593DA823AD2A0C0090AC60 /* DatastoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatastoreKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Datastore
 
 enum DocumentError: Error {
   case unrecognizedContent
@@ -43,6 +44,25 @@ class InterchangeDocument: UIDocument {
 """
     
     var json = InterchangeDocument.sampleJSON
+    var store: Datastore? = nil
+    
+    override func open(completionHandler: ((Bool) -> Void)? = nil) {
+        super.open() { result in
+            if (result) {
+                Datastore.load(name: self.fileURL.lastPathComponent, json: self.json) { result in
+                    switch result {
+                        case .failure:
+                            completionHandler?(false)
+                        
+                        case .success(let store):
+                            self.store = store
+                            completionHandler?(true)
+                    }
+                    
+                }
+            }
+        }
+    }
     
     override func contents(forType typeName: String) throws -> Any {
         // Encode your document with an instance of NSData or NSFileWrapper
