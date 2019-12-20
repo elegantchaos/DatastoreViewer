@@ -10,13 +10,14 @@
 		8B593D7123ACEA040090AC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7023ACEA040090AC60 /* AppDelegate.swift */; };
 		8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */; };
 		8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7423ACEA040090AC60 /* DocumentViewController.swift */; };
-		8B593D7723ACEA040090AC60 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7623ACEA040090AC60 /* Document.swift */; };
+		8B593D7723ACEA040090AC60 /* InterchangeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */; };
 		8B593D7A23ACEA040090AC60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B593D7823ACEA040090AC60 /* Main.storyboard */; };
 		8B593D7C23ACEA050090AC60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B593D7B23ACEA050090AC60 /* Assets.xcassets */; };
 		8B593D7F23ACEA050090AC60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */; };
 		8B593D8A23ACEA050090AC60 /* DatastoreViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D8923ACEA050090AC60 /* DatastoreViewerTests.swift */; };
 		8B593D9523ACEA050090AC60 /* DatastoreViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */; };
 		8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA323ACEAB90090AC60 /* Datastore */; };
+		8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 		8B593D7023ACEA040090AC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		8B593D7423ACEA040090AC60 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
-		8B593D7623ACEA040090AC60 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterchangeDocument.swift; sourceTree = "<group>"; };
 		8B593D7923ACEA040090AC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B593D7B23ACEA050090AC60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B593D7E23ACEA050090AC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		8B593D9023ACEA050090AC60 /* DatastoreViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatastoreViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreViewerUITests.swift; sourceTree = "<group>"; };
 		8B593D9623ACEA050090AC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,8 @@
 				8B593D7023ACEA040090AC60 /* AppDelegate.swift */,
 				8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */,
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
-				8B593D7623ACEA040090AC60 /* Document.swift */,
+				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
+				8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */,
 				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B593D7B23ACEA050090AC60 /* Assets.xcassets */,
 				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
@@ -270,7 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B593D7723ACEA040090AC60 /* Document.swift in Sources */,
+				8B593D7723ACEA040090AC60 /* InterchangeDocument.swift in Sources */,
+				8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */,
 				8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */,
 				8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */,
 				8B593D7123ACEA040090AC60 /* AppDelegate.swift in Sources */,
