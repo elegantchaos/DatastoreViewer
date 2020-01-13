@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Datastore",
-        "repositoryURL": "git@github.com:elegantchaos/Datastore.git",
-        "state": {
-          "branch": null,
-          "revision": "09e9cf1c4f147cdaf1e1fc110d06359f66659236",
-          "version": "1.2.0"
-        }
-      },
-      {
         "package": "Logger",
         "repositoryURL": "https://github.com/elegantchaos/Logger.git",
         "state": {

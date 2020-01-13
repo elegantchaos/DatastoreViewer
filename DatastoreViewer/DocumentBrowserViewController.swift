@@ -66,13 +66,22 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: Document Presentation
     
     func presentDocument(at documentURL: URL) {
+        let document = InterchangeDocument(fileURL: documentURL)
+        document.open(completionHandler: { (success) in
+            if success {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
+                documentViewController.document = document
+                documentViewController.modalPresentationStyle = .fullScreen
+                self.present(documentViewController, animated: true, completion: nil)
+            } else {
+//
+//                self.documentNameLabel.text = "Failed to load document"
+                // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+            }
+        })
+
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
-        documentViewController.document = InterchangeDocument(fileURL: documentURL)
-        documentViewController.modalPresentationStyle = .fullScreen
-        
-        present(documentViewController, animated: true, completion: nil)
     }
 }
 
