@@ -2,7 +2,7 @@
 //  Document.swift
 //  DatastoreViewer
 //
-//  Created by Developer on 20/12/2019.
+//  Created by Sam Deane on 20/12/2019.
 //  Copyright © 2019 Elegant Chaos. All rights reserved.
 //
 
@@ -34,12 +34,25 @@ class InterchangeDocument: UIDocument {
 {
   "entities" : [
     {
-      "name" : "Test",
-      "identifier" : "C41DB873-323D-4026-95D1-603120B9ADF6",
+      "name" : "A Person",
+      "identifier" : "person-1",
       "type" : "person",
       "foo" : "bar",
     },
-  ]
+    {
+    "name" : "Another Person",
+    "identifier" : "person-2",
+    "type" : "person",
+    "foo" : "wibble",
+    },
+  {
+    "name" : "Book 1",
+    "identifier" : "book-1",
+    "type" : "book",
+    "author" : "person-1",
+    "editor" : "person-2"
+  },
+]
 }
 """
     

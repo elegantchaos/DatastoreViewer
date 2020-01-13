@@ -1,10 +1,7 @@
-//
-//  DocumentViewController.swift
-//  DatastoreViewer
-//
-//  Created by Developer on 20/12/2019.
-//  Copyright © 2019 Elegant Chaos. All rights reserved.
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//  Created by Sam Deane on 20/12/2019.
+//  All code (c) 2020 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import UIKit
 import Datastore
@@ -24,7 +21,7 @@ class DocumentViewController: UIViewController {
             return
         }
         
-        let name = document.fileURL.lastPathComponent
+        let name = document.fileURL.deletingPathExtension().lastPathComponent
         self.documentNameLabel.text = name
     }
     

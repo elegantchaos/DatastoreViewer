@@ -2,7 +2,7 @@
 //  DocumentBrowserViewController.swift
 //  DatastoreViewer
 //
-//  Created by Developer on 20/12/2019.
+//  Created by Sam Deane on 20/12/2019.
 //  Copyright © 2019 Elegant Chaos. All rights reserved.
 //
 
@@ -67,21 +67,22 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func presentDocument(at documentURL: URL) {
         let document = InterchangeDocument(fileURL: documentURL)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         document.open(completionHandler: { (success) in
             if success {
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
-                documentViewController.document = document
-                documentViewController.modalPresentationStyle = .fullScreen
-                self.present(documentViewController, animated: true, completion: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
+                controller.document = document
+                self.present(documentController: controller)
             } else {
-//
-//                self.documentNameLabel.text = "Failed to load document"
-                // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentFailedViewController") as! DocumentFailedViewController
+                self.present(documentController: controller)
             }
         })
-
-        
+    }
+    
+    func present(documentController controller: UIViewController) {
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
     }
 }
 

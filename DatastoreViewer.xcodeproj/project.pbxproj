@@ -19,6 +19,7 @@
 		8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA323ACEAB90090AC60 /* Datastore */; };
 		8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */; };
 		8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA823AD2A0C0090AC60 /* DatastoreKit */; };
+		8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreViewerUITests.swift; sourceTree = "<group>"; };
 		8B593D9623ACEA050090AC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				8B593D7023ACEA040090AC60 /* AppDelegate.swift */,
 				8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */,
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
+				8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */,
 				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
 				8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */,
 				8B593D7823ACEA040090AC60 /* Main.storyboard */,
@@ -286,6 +289,7 @@
 			files = (
 				8B593D7723ACEA040090AC60 /* InterchangeDocument.swift in Sources */,
 				8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */,
+				8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */,
 				8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */,
 				8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */,
 				8B593D7123ACEA040090AC60 /* AppDelegate.swift in Sources */,

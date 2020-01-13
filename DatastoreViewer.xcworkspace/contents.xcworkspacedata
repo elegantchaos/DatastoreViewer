@@ -7,4 +7,7 @@
    <FileRef
       location = "group:../Datastore">
    </FileRef>
+   <FileRef
+      location = "group:../Layout">
+   </FileRef>
 </Workspace>

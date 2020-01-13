@@ -2,7 +2,7 @@
 //  DatastoreViewerTests.swift
 //  DatastoreViewerTests
 //
-//  Created by Developer on 20/12/2019.
+//  Created by Sam Deane on 20/12/2019.
 //  Copyright © 2019 Elegant Chaos. All rights reserved.
 //
 
