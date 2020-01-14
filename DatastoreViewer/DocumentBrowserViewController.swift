@@ -70,11 +70,11 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         document.open(completionHandler: { (success) in
             if success {
-                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
+                let controller = storyboard.instantiateViewController(withIdentifier: "Document") as! DocumentViewController
                 controller.document = document
                 self.present(documentController: controller)
             } else {
-                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentFailedViewController") as! DocumentFailedViewController
+                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentFailed") as! DocumentFailedViewController
                 self.present(documentController: controller)
             }
         })

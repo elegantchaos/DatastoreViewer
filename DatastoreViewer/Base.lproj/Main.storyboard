@@ -25,7 +25,7 @@
         <!--Document View Controller-->
         <scene sceneID="dkP-xk-x6W">
             <objects>
-                <viewController storyboardIdentifier="DocumentViewController" id="M2k-L8-Olo" customClass="DocumentViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Document" id="M2k-L8-Olo" customClass="DocumentViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SIE-Uh-Zny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--Document Failed View Controller-->
         <scene sceneID="N28-5f-ExB">
             <objects>
-                <viewController id="zjh-lY-PY3" customClass="DocumentFailedViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocumentFailed" id="zjh-lY-PY3" customClass="DocumentFailedViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gRU-4f-iFq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

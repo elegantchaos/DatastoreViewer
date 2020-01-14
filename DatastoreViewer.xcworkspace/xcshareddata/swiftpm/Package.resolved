@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "ApplicationExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ApplicationExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "efae5fbc5a2a8dea53f67da000236188b13ec0e7",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "Logger",
         "repositoryURL": "https://github.com/elegantchaos/Logger.git",
         "state": {
           "branch": null,
           "revision": "c101ca48876adabeb25848f5fe0efba748c24d73",
           "version": "1.3.7"
+        }
+      },
+      {
+        "package": "ViewExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ViewExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "d81ed9647eb4b651f64e7ff8693d0745f3758c73",
+          "version": "1.0.0"
         }
       },
       {
