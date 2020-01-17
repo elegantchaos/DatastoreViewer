@@ -40,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B55AE1923D1DB9600B51C66 /* DatastoreViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DatastoreViewer.entitlements; sourceTree = "<group>"; };
+		8B55AE1A23D2006300B51C66 /* Icon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Icon.svg; sourceTree = "<group>"; wrapsLines = 1; };
+		8B55AE1B23D207AC00B51C66 /* AppIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AppIcon.pdf; sourceTree = "<group>"; };
 		8B593D6D23ACEA040090AC60 /* DatastoreViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatastoreViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B593D7023ACEA040090AC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		8B593D6F23ACEA040090AC60 /* DatastoreViewer */ = {
 			isa = PBXGroup;
 			children = (
+				8B55AE1923D1DB9600B51C66 /* DatastoreViewer.entitlements */,
 				8B593D7023ACEA040090AC60 /* AppDelegate.swift */,
 				8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */,
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
@@ -120,6 +124,8 @@
 				8B593D7B23ACEA050090AC60 /* Assets.xcassets */,
 				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
 				8B593D8023ACEA050090AC60 /* Info.plist */,
+				8B55AE1A23D2006300B51C66 /* Icon.svg */,
+				8B55AE1B23D207AC00B51C66 /* AppIcon.pdf */,
 			);
 			path = DatastoreViewer;
 			sourceTree = "<group>";
@@ -464,8 +470,10 @@
 		8B593D9A23ACEA050090AC60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = iOSAppIcon;
+				CODE_SIGN_ENTITLEMENTS = DatastoreViewer/DatastoreViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = DatastoreViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DatastoreViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -482,8 +491,10 @@
 		8B593D9B23ACEA050090AC60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = iOSAppIcon;
+				CODE_SIGN_ENTITLEMENTS = DatastoreViewer/DatastoreViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 2H48644JM2;
 				INFOPLIST_FILE = DatastoreViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,6 +503,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elegantchaos.DatastoreViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -6,12 +6,15 @@
 import UIKit
 import Datastore
 import DatastoreKit
+import ViewExtensions
 
 class DocumentViewController: UIViewController {
     
     @IBOutlet weak var documentNameLabel: UILabel!
+    @IBOutlet weak var indexView: UIView!
     
     var document: InterchangeDocument?
+    var indexController: DatastoreIndexController { indexView!.subviews[0].findViewController() as! DatastoreIndexController }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,6 +26,8 @@ class DocumentViewController: UIViewController {
         
         let name = document.fileURL.deletingPathExtension().lastPathComponent
         self.documentNameLabel.text = name
+        
+        indexController.filterTypes = ["person", "book"]
     }
     
     @IBAction func dismissDocumentViewController() {

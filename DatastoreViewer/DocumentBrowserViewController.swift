@@ -10,6 +10,7 @@ import UIKit
 
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
+    var restoreLastDocument = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
         
-        let url = UIApplication.newDocumentURL(withPathExtension: ".store-interchange")
+        let url = UIApplication.newDocumentURL(withPathExtension: "store-interchange")
         let document = InterchangeDocument(fileURL: url)
         
         document.save(to: url, for: .forCreating) { saveResult in
@@ -70,6 +71,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         document.open(completionHandler: { (success) in
             if success {
+                let defaults = UserDefaults.standard
+                defaults.set(documentURL, forKey: "LastDocumentPresented")
+                
                 let controller = storyboard.instantiateViewController(withIdentifier: "Document") as! DocumentViewController
                 controller.document = document
                 self.present(documentController: controller)
