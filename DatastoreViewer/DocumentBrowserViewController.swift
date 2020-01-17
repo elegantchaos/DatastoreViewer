@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Logger
 
+let documentBrowserChannel = Channel("DocumentBrowser", handlers: [OSLogHandler()])
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
     var restoreLastDocument = true
@@ -15,6 +17,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        documentBrowserChannel.enabled = true
+        documentBrowserChannel.debug("viewDidLoad")
+
         delegate = self
         
         allowsDocumentCreation = true
@@ -29,6 +34,15 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        documentBrowserChannel.debug("viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        documentBrowserChannel.debug("viewDidAppear")
+    }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
@@ -67,6 +81,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: Document Presentation
     
     func presentDocument(at documentURL: URL) {
+        restoreLastDocument = false
         let document = InterchangeDocument(fileURL: documentURL)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         document.open(completionHandler: { (success) in
@@ -88,5 +103,12 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
     }
+    
+    func restoreLastDocumentIfNecessary() {
+        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: "LastDocumentPresented") {
+            presentDocument(at: lastURL)
+        }
+    }
+    
 }
 
