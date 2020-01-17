@@ -20,12 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let options = launchOptions {
             applicationChannel.debug("launch options: \(options)")
         }
-        
-        let time = DispatchTime.now().advanced(by: .seconds(1))
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            let documentBrowserViewController = self.window?.rootViewController as? DocumentBrowserViewController
-            documentBrowserViewController?.restoreLastDocumentIfNecessary()
-        }
 
         return true
     }

@@ -12,13 +12,13 @@ import Logger
 let documentBrowserChannel = Channel("DocumentBrowser", handlers: [OSLogHandler()])
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
+    let lastDocumentKey = "LastDocumentPresented"
     var restoreLastDocument = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         documentBrowserChannel.enabled = true
-        documentBrowserChannel.debug("viewDidLoad")
 
         delegate = self
         
@@ -34,14 +34,14 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        documentBrowserChannel.debug("viewWillAppear")
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        documentBrowserChannel.debug("viewDidAppear")
+        
+        let time = DispatchTime.now().advanced(by: .seconds(1))
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.restoreLastDocumentIfNecessary()
+        }
+
     }
     
     // MARK: UIDocumentBrowserViewControllerDelegate
@@ -87,7 +87,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         document.open(completionHandler: { (success) in
             if success {
                 let defaults = UserDefaults.standard
-                defaults.set(documentURL, forKey: "LastDocumentPresented")
+                defaults.set(documentURL, forKey: self.lastDocumentKey)
                 
                 let controller = storyboard.instantiateViewController(withIdentifier: "Document") as! DocumentViewController
                 controller.document = document
@@ -105,7 +105,8 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     }
     
     func restoreLastDocumentIfNecessary() {
-        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: "LastDocumentPresented") {
+        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: lastDocumentKey) {
+            documentBrowserChannel.debug("restoring previous document \(lastURL)")
             presentDocument(at: lastURL)
         }
     }
