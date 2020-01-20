@@ -28,6 +28,9 @@ class DocumentViewController: UIViewController {
         self.documentNameLabel.text = name
         
         indexController.filterTypes = ["person", "book"]
+        indexController.onSelect = { entity in
+            print("Selected \(entity)")
+        }
     }
     
     @IBAction func dismissDocumentViewController() {
