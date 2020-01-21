@@ -1,0 +1,120 @@
+{
+    "entities" : [
+        {
+            "name" : "A Person",
+            "identifier" : "person-1",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "person",
+            "foo" : "bar",
+        },
+        {
+            "name" : "Another Person",
+            "identifier" : "person-2",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "person",
+            "foo" : "wibble",
+        },
+        {
+            "name" : "A Third Person",
+            "identifier" : "person-3",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "person",
+            "foo" : "wibble",
+        },
+        {
+            "name" : "A Fourth Person",
+            "identifier" : "person-4",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "person",
+            "foo" : "wibble",
+        },
+        {
+            "name" : "Book 1",
+            "identifier" : "book-1",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "book",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "test",
+            "address" : "456 Old St",
+            "author" : {
+                "entity" : "person-1",
+                "type" : "author"
+            },
+            "editor" : {
+                "entity" : "person-2",
+                "type" : "editor"
+            },
+        },
+    {
+        "name" : "Book 2",
+        "identifier" : "book-2",
+        "type" : "book",
+        "author" : {
+            "entity" : "person-1",
+            "type" : "author"
+        },
+        "editor" : {
+            "entity" : "person-2",
+            "type" : "editor"
+        },
+    },
+    {
+        "name" : "Book 3",
+        "identifier" : "book-3",
+        "type" : "book",
+        "author" : {
+            "entity" : "person-1",
+            "type" : "author"
+        },
+        "editor" : {
+            "entity" : "person-2",
+            "type" : "editor"
+        },
+    },
+    {
+        "name" : "Book 4",
+        "identifier" : "book-4",
+        "type" : "book",
+        "author" : {
+            "entity" : "person-4",
+            "type" : "author"
+        },
+        "editor" : {
+            "entity" : "person-2",
+            "type" : "editor"
+        },
+    },
+    {
+        "name" : "Book 5",
+        "identifier" : "book-5",
+        "type" : "book",
+        "author" : {
+            "entity" : "person-3",
+            "type" : "author"
+        },
+        "editor" : {
+            "entity" : "person-2",
+            "type" : "editor"
+        },
+    },
+    {
+        "name" : "Book 6",
+        "identifier" : "book-6",
+        "type" : "book",
+        "author" : {
+            "entity" : "person-2",
+            "type" : "author"
+        },
+        "illustrator" : {
+            "entity" : "person-2",
+            "type" : "illustrator"
+        },
+    },
+    ]
+}

@@ -1,13 +1,11 @@
-//
-//  Document.swift
-//  DatastoreViewer
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  Created by Sam Deane on 20/12/2019.
-//  Copyright © 2019 Elegant Chaos. All rights reserved.
-//
+//  All code (c) 2019 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import UIKit
 import Datastore
+import ApplicationExtensions
 
 enum DocumentError: Error {
   case unrecognizedContent
@@ -30,31 +28,9 @@ enum DocumentError: Error {
 class InterchangeDocument: UIDocument {
     static let filenameExtension = "store-interchange"
 
-    static let sampleJSON = """
-{
-  "entities" : [
-    {
-      "name" : "A Person",
-      "identifier" : "person-1",
-      "type" : "person",
-      "foo" : "bar",
-    },
-    {
-    "name" : "Another Person",
-    "identifier" : "person-2",
-    "type" : "person",
-    "foo" : "wibble",
-    },
-  {
-    "name" : "Book 1",
-    "identifier" : "book-1",
-    "type" : "book",
-    "author" : "person-1",
-    "editor" : "person-2"
-  },
-]
-}
-"""
+    static var sampleJSON: String {
+        Bundle.main.stringResource(named: "SampleData", withExtension: "json")
+    }
     
     var json = InterchangeDocument.sampleJSON
     var store: Datastore? = nil

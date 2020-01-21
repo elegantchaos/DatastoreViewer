@@ -17,9 +17,10 @@
 		8B593D8A23ACEA050090AC60 /* DatastoreViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D8923ACEA050090AC60 /* DatastoreViewerTests.swift */; };
 		8B593D9523ACEA050090AC60 /* DatastoreViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */; };
 		8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA323ACEAB90090AC60 /* Datastore */; };
-		8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */; };
 		8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA823AD2A0C0090AC60 /* DatastoreKit */; };
 		8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */; };
+		8B59BC7423D7215E007185B9 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B59BC7323D7215E007185B9 /* SampleData.json */; };
+		8B59BC7723D7231E007185B9 /* ApplicationExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B59BC7623D7231E007185B9 /* ApplicationExtensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +57,8 @@
 		8B593D9023ACEA050090AC60 /* DatastoreViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatastoreViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreViewerUITests.swift; sourceTree = "<group>"; };
 		8B593D9623ACEA050090AC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFailedViewController.swift; sourceTree = "<group>"; };
+		8B59BC7323D7215E007185B9 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */,
+				8B59BC7723D7231E007185B9 /* ApplicationExtensions in Frameworks */,
 				8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,11 +119,11 @@
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
 				8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */,
 				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
-				8B593DA523ACF0AA0090AC60 /* UIApplicationExtensions.swift */,
 				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B593D7B23ACEA050090AC60 /* Assets.xcassets */,
 				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
 				8B593D8023ACEA050090AC60 /* Info.plist */,
+				8B59BC7323D7215E007185B9 /* SampleData.json */,
 			);
 			path = DatastoreViewer;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 			packageProductDependencies = (
 				8B593DA323ACEAB90090AC60 /* Datastore */,
 				8B593DA823AD2A0C0090AC60 /* DatastoreKit */,
+				8B59BC7623D7231E007185B9 /* ApplicationExtensions */,
 			);
 			productName = DatastoreViewer;
 			productReference = 8B593D6D23ACEA040090AC60 /* DatastoreViewer.app */;
@@ -245,6 +248,7 @@
 			mainGroup = 8B593D6423ACEA040090AC60;
 			packageReferences = (
 				8B593DA223ACEAB90090AC60 /* XCRemoteSwiftPackageReference "Datastore" */,
+				8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */,
 			);
 			productRefGroup = 8B593D6E23ACEA040090AC60 /* Products */;
 			projectDirPath = "";
@@ -265,6 +269,7 @@
 				8B593D7F23ACEA050090AC60 /* LaunchScreen.storyboard in Resources */,
 				8B593D7C23ACEA050090AC60 /* Assets.xcassets in Resources */,
 				8B593D7A23ACEA040090AC60 /* Main.storyboard in Resources */,
+				8B59BC7423D7215E007185B9 /* SampleData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B593D7723ACEA040090AC60 /* InterchangeDocument.swift in Sources */,
-				8B593DA623ACF0AA0090AC60 /* UIApplicationExtensions.swift in Sources */,
 				8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */,
 				8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */,
 				8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */,
@@ -639,6 +643,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:elegantchaos/ApplicationExtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -650,6 +662,11 @@
 		8B593DA823AD2A0C0090AC60 /* DatastoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DatastoreKit;
+		};
+		8B59BC7623D7231E007185B9 /* ApplicationExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */;
+			productName = ApplicationExtensions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

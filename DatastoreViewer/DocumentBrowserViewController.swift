@@ -1,10 +1,7 @@
-//
-//  DocumentBrowserViewController.swift
-//  DatastoreViewer
-//
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //  Created by Sam Deane on 20/12/2019.
-//  Copyright © 2019 Elegant Chaos. All rights reserved.
-//
+//  All code (c) 2019 - present day, Elegant Chaos Limited.
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 import UIKit
 import Logger
