@@ -34,6 +34,7 @@ class InterchangeDocument: UIDocument {
     
     var json = InterchangeDocument.sampleJSON
     var store: Datastore? = nil
+    var types: [EntityType] = []
     
     override func open(completionHandler: ((Bool) -> Void)? = nil) {
         super.open() { result in
@@ -44,8 +45,13 @@ class InterchangeDocument: UIDocument {
                             completionHandler?(false)
                         
                         case .success(let store):
-                            self.store = store
-                            completionHandler?(true)
+                            store.getAllEntityTypes() { types in
+                                self.store = store
+                                self.types = types
+                                DispatchQueue.main.async {
+                                    completionHandler?(true)
+                                }
+                            }
                     }
                     
                 }

@@ -44,7 +44,7 @@ class DocumentViewController: UIViewController {
         detailNavigationController.delegate = self
         splitController.viewControllers = [indexNavigationController, detailNavigationController]
 
-        indexController.filterTypes = ["person", "book"]
+        indexController.filterTypes = document.types
         indexController.onSelect = { entity in self.show(entity: entity) }
     }
     

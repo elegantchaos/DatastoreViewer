@@ -33,6 +33,20 @@
             "foo" : "wibble",
         },
         {
+            "name" : "A Publisher",
+            "identifier" : "publisher-1",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "publisher",
+        },
+        {
+            "name" : "A Series",
+            "identifier" : "series-1",
+            "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
+            "modified" : { "date" : "1963-09-21T01:23:45Z" },
+            "type" : "series",
+        },
+        {
             "name" : "Book 1",
             "identifier" : "book-1",
             "datestamp" : { "date" : "1969-11-12T01:23:45Z" },
