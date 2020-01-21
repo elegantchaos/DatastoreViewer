@@ -10,12 +10,15 @@ import ViewExtensions
 
 class DocumentViewController: UIViewController {
     
+    // TODO: is there any advantage in just making this the split view controller?
+    
     @IBOutlet weak var documentNameLabel: UILabel!
     @IBOutlet weak var indexView: UIView!
     
     var document: InterchangeDocument?
     var splitController: UISplitViewController!
     var indexController: DatastoreIndexController!
+    var detailNavigationController: UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +33,25 @@ class DocumentViewController: UIViewController {
 
         splitController = indexView!.subviews[0].findViewController() as? UISplitViewController
         indexController = DatastoreIndexController()
-        let masterNav = UINavigationController(rootViewController: indexController)
-        masterNav.title = "Master"
-        masterNav.isNavigationBarHidden = true
-        let detail = DatastoreEntityController()
-        let detailNav = UINavigationController(rootViewController: detail)
-        detailNav.title = "Detail"
-        detailNav.isNavigationBarHidden = true
-        splitController.viewControllers = [masterNav, detailNav]
+        let indexNavigationController = UINavigationController(rootViewController: indexController)
+        indexNavigationController.title = "Master"
+        indexNavigationController.isNavigationBarHidden = true
+        
+        let noSelectionController = storyboard!.instantiateViewController(identifier: "NoSelection")
+        detailNavigationController = UINavigationController(rootViewController: noSelectionController)
+        detailNavigationController.title = "Detail"
+        detailNavigationController.isNavigationBarHidden = true
+        detailNavigationController.delegate = self
+        splitController.viewControllers = [indexNavigationController, detailNavigationController]
 
         indexController.filterTypes = ["person", "book"]
-        indexController.onSelect = { entity in
-            print("Selected \(entity)")
-        }
+        indexController.onSelect = { entity in self.show(entity: entity) }
+    }
+    
+    func show(entity: EntityReference) {
+        let detail = DatastoreEntityController()
+        detailNavigationController.pushViewController(detail, animated: true)
+        detailNavigationController.isNavigationBarHidden = false
     }
     
     @IBAction func dismissDocumentViewController() {
@@ -55,5 +64,13 @@ class DocumentViewController: UIViewController {
 extension DocumentViewController: DatastoreViewContextSupplier {
     var viewDatastore: Datastore {
         return document!.store!
+    }
+}
+
+extension DocumentViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if navigationController.viewControllers.count == 1 {
+            navigationController.isNavigationBarHidden = true
+        }
     }
 }

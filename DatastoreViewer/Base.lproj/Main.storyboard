@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Document Browser View Controller-->
+        <!--Browser-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DocumentBrowserViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Browser" customClass="DocumentBrowserViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="26" y="654"/>
         </scene>
-        <!--Document View Controller-->
+        <!--Document-->
         <scene sceneID="dkP-xk-x6W">
             <objects>
-                <viewController storyboardIdentifier="Document" id="M2k-L8-Olo" customClass="DocumentViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Document" id="M2k-L8-Olo" userLabel="Document" customClass="DocumentViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SIE-Uh-Zny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,6 @@
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="719-7B-3fm">
                                         <rect key="frame" x="0.0" y="65" width="335" height="562"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="J4y-gQ-nzm" kind="embed" id="DKD-qa-jKV"/>
                                         </connections>
@@ -86,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1029.5999999999999" y="653.52323838080963"/>
         </scene>
-        <!--Document Failed View Controller-->
+        <!--Loading Failed-->
         <scene sceneID="N28-5f-ExB">
             <objects>
-                <viewController storyboardIdentifier="DocumentFailed" id="zjh-lY-PY3" customClass="DocumentFailedViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocumentFailed" id="zjh-lY-PY3" userLabel="Loading Failed" customClass="DocumentFailedViewController" customModule="DatastoreViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gRU-4f-iFq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,29 +109,40 @@
             </objects>
             <point key="canvasLocation" x="1039" y="1369"/>
         </scene>
-        <!--Split View Controller-->
+        <!--No Selection-->
+        <scene sceneID="e7F-Oe-hIN">
+            <objects>
+                <viewController storyboardIdentifier="NoSelection" id="Eid-D0-tkM" userLabel="No Selection" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e5r-iG-eHu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nD-7O-aZM">
+                                <rect key="frame" x="138.5" y="323" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6nD-7O-aZM" firstAttribute="centerY" secondItem="lqq-zI-qAV" secondAttribute="centerY" id="KBR-Hd-tcN"/>
+                            <constraint firstItem="6nD-7O-aZM" firstAttribute="centerX" secondItem="lqq-zI-qAV" secondAttribute="centerX" id="Vvw-sb-luo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lqq-zI-qAV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fn7-cw-zSA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805.5999999999999" y="1372.263868065967"/>
+        </scene>
+        <!--Document Split-->
         <scene sceneID="i7P-C1-Vgc">
             <objects>
-                <splitViewController id="J4y-gQ-nzm" sceneMemberID="viewController"/>
+                <splitViewController id="J4y-gQ-nzm" userLabel="Document Split" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoF-ut-TES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1777" y="606"/>
-        </scene>
-        <!--Datastore Index Controller-->
-        <scene sceneID="x4N-5C-UJ3">
-            <objects>
-                <viewController id="rdh-yr-PRm" customClass="DatastoreIndexController" customModule="DatastoreKit" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UR4-WI-imp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="mmH-ad-e8s"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Bgb-EP-iLy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1xw-oJ-fNY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3366" y="618"/>
         </scene>
     </scenes>
 </document>
