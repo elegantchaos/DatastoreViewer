@@ -56,7 +56,7 @@ class DocumentViewController: UIViewController {
                 let keys = Array(fetched.keys)
                 let sections = [keys]
                 DispatchQueue.main.async {
-                    let detail = DatastoreEntityController(for: fetched, sections: sections)
+                    let detail = DatastorePropertyController(for: fetched, sections: sections)
                     navigationController.pushViewController(detail, animated: true)
                     navigationController.isNavigationBarHidden = false
                 }
