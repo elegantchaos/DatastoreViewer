@@ -49,9 +49,19 @@ class DocumentViewController: UIViewController {
     }
     
     func show(entity: EntityReference) {
-        let detail = DatastoreEntityController()
-        detailNavigationController.pushViewController(detail, animated: true)
-        detailNavigationController.isNavigationBarHidden = false
+        if let store = document?.store, let navigationController = detailNavigationController {
+            
+            store.get(allPropertiesOf: [entity]) { results in
+                let fetched = results[0]
+                let keys = Array(fetched.keys)
+                let sections = [keys]
+                DispatchQueue.main.async {
+                    let detail = DatastoreEntityController(for: fetched, sections: sections)
+                    navigationController.pushViewController(detail, animated: true)
+                    navigationController.isNavigationBarHidden = false
+                }
+            }
+        }
     }
     
     @IBAction func dismissDocumentViewController() {
