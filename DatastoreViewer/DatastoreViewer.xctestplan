@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "BD270C0F-DFB2-4984-AA94-3A77D9184822",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DatastoreViewer.xcodeproj",
+      "identifier" : "8B593D6C23ACEA040090AC60",
+      "name" : "DatastoreViewer"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:DatastoreViewer.xcodeproj",
+        "identifier" : "8B593D8423ACEA050090AC60",
+        "name" : "DatastoreViewerTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:DatastoreViewer.xcodeproj",
+        "identifier" : "8B593D8F23ACEA050090AC60",
+        "name" : "DatastoreViewerUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Datastore",
+        "identifier" : "DatastoreTests",
+        "name" : "DatastoreTests"
+      }
+    }
+  ],
+  "version" : 1
+}

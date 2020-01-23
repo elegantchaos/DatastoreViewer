@@ -59,6 +59,7 @@
 		8B593D9623ACEA050090AC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFailedViewController.swift; sourceTree = "<group>"; };
 		8B59BC7323D7215E007185B9 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
+		8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatastoreViewer.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +120,7 @@
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
 				8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */,
 				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
+				8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */,
 				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B593D7B23ACEA050090AC60 /* Assets.xcassets */,
 				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
