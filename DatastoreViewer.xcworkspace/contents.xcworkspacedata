@@ -5,6 +5,9 @@
       location = "container:DatastoreViewer.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../Performance">
+   </FileRef>
+   <FileRef
       location = "group:../Datastore">
    </FileRef>
    <FileRef

@@ -5,12 +5,14 @@
 
 import UIKit
 import Logger
+import LoggerKit
 
 let applicationChannel = Channel("Application", handlers: [OSLogHandler()])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let loggerMenu = LoggerMenu(manager: Logger.defaultManager)
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -67,7 +69,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-
-
 }
+
+
+// MARK: Responder Chain
+
+extension AppDelegate {
+    override var next: UIResponder? {
+        return loggerMenu
+    }
+}
+
 
