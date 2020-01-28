@@ -7,6 +7,9 @@ import UIKit
 import Datastore
 import DatastoreKit
 import ViewExtensions
+import Logger
+
+let documentViewChannel = Channel("DocumentView")
 
 class DocumentViewController: UIViewController {
     
@@ -19,7 +22,8 @@ class DocumentViewController: UIViewController {
     var splitController: UISplitViewController!
     var indexController: DatastoreIndexController!
     var detailNavigationController: UINavigationController!
-    
+    var skipDefault = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +36,9 @@ class DocumentViewController: UIViewController {
         self.documentNameLabel.text = name
 
         splitController = indexView!.subviews[0].findViewController() as? UISplitViewController
+        splitController.preferredDisplayMode = .allVisible
+        splitController.delegate = self
+        
         indexController = DatastoreIndexController()
         let indexNavigationController = UINavigationController(rootViewController: indexController)
         indexNavigationController.title = "Master"
@@ -49,16 +56,17 @@ class DocumentViewController: UIViewController {
     }
     
     func show(entity: EntityReference) {
-        if let store = document?.store, let navigationController = detailNavigationController {
-            
+        if let store = document?.store, let navigation = splitController.viewControllers.last as? UINavigationController {
+            let isCollapsed = splitController.isCollapsed
             store.get(allPropertiesOf: [entity]) { results in
                 let fetched = results[0]
                 let keys = Array(fetched.keys)
                 let sections = [keys]
                 DispatchQueue.main.async {
                     let detail = DatastorePropertyController(for: fetched, sections: sections, store: store)
-                    navigationController.pushViewController(detail, animated: true)
-                    navigationController.isNavigationBarHidden = false
+                    navigation.popToRootViewController(animated: false)
+                    navigation.pushViewController(detail, animated: isCollapsed)
+                    navigation.isNavigationBarHidden = !isCollapsed
                 }
             }
         }
@@ -82,5 +90,22 @@ extension DocumentViewController: UINavigationControllerDelegate {
         if navigationController.viewControllers.count == 1 {
             navigationController.isNavigationBarHidden = true
         }
+    }
+}
+
+extension DocumentViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
+        documentViewChannel.log("changing to \(displayMode)")
+    }
+
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        guard let nav = primaryViewController as? UINavigationController, let _ = nav.topViewController as? DatastorePropertyController else {
+            return true
+        }
+
+        documentViewChannel.log("collapsing")
+        let shouldSkipDefaultBehaviour = skipDefault
+        skipDefault = false
+        return shouldSkipDefaultBehaviour
     }
 }
