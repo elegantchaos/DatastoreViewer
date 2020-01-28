@@ -15,8 +15,8 @@ class DocumentViewController: UIViewController {
     
     // TODO: is there any advantage in just making this the split view controller?
     
+    @IBOutlet weak var contentStack: UIStackView!
     @IBOutlet weak var documentNameLabel: UILabel!
-    @IBOutlet weak var indexView: UIView!
     
     var document: InterchangeDocument?
     var splitController: UISplitViewController!
@@ -35,21 +35,25 @@ class DocumentViewController: UIViewController {
         let name = document.fileURL.deletingPathExtension().lastPathComponent
         self.documentNameLabel.text = name
 
-        splitController = indexView!.subviews[0].findViewController() as? UISplitViewController
-        splitController.preferredDisplayMode = .allVisible
+        splitController = UISplitViewController()
         splitController.delegate = self
-        
+        splitController.preferredDisplayMode = .allVisible
+
         indexController = DatastoreIndexController()
         let indexNavigationController = UINavigationController(rootViewController: indexController)
         indexNavigationController.title = "Master"
-        indexNavigationController.isNavigationBarHidden = true
+        indexNavigationController.isNavigationBarHidden = false
         
         let noSelectionController = storyboard!.instantiateViewController(identifier: "NoSelection")
+        noSelectionController.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
+
         detailNavigationController = UINavigationController(rootViewController: noSelectionController)
         detailNavigationController.title = "Detail"
-        detailNavigationController.isNavigationBarHidden = true
         detailNavigationController.delegate = self
+        
         splitController.viewControllers = [indexNavigationController, detailNavigationController]
+        contentStack.addArrangedSubview(splitController.view)
+        addChild(splitController)
 
         indexController.filterTypes = document.types
         indexController.onSelect = { entity in self.show(entity: entity) }
@@ -88,7 +92,7 @@ extension DocumentViewController: DatastoreViewContextSupplier {
 extension DocumentViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if navigationController.viewControllers.count == 1 {
-            navigationController.isNavigationBarHidden = true
+            navigationController.isNavigationBarHidden = !splitController.isCollapsed
         }
     }
 }
@@ -96,9 +100,18 @@ extension DocumentViewController: UINavigationControllerDelegate {
 extension DocumentViewController: UISplitViewControllerDelegate {
     func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
         documentViewChannel.log("changing to \(displayMode)")
+        switch displayMode {
+            case .allVisible:
+                detailNavigationController.isNavigationBarHidden = !svc.isCollapsed && (detailNavigationController.viewControllers.count == 1)
+            case .primaryHidden:
+                detailNavigationController.isNavigationBarHidden = false
+            default:
+                break
+        }
     }
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        print("blah")
         guard let nav = primaryViewController as? UINavigationController, let _ = nav.topViewController as? DatastorePropertyController else {
             return true
         }
