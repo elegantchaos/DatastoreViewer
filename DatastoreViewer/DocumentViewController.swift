@@ -111,8 +111,8 @@ extension DocumentViewController: UISplitViewControllerDelegate {
     }
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        print("blah")
-        guard let nav = primaryViewController as? UINavigationController, let _ = nav.topViewController as? DatastorePropertyController else {
+        print("collapsing \(secondaryViewController) onto \(primaryViewController)")
+        guard let nav = primaryViewController as? UINavigationController, let _ = nav.topViewController as? DatastoreIndexController else {
             return true
         }
 
