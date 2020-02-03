@@ -6,8 +6,9 @@
 import UIKit
 import Datastore
 import DatastoreKit
-import ViewExtensions
+import IndexDetailViewController
 import Logger
+import ViewExtensions
 
 let documentViewChannel = Channel("DocumentView")
 
@@ -19,9 +20,8 @@ class DocumentViewController: UIViewController {
     @IBOutlet weak var documentNameLabel: UILabel!
     
     var document: InterchangeDocument?
-    var splitController: UISplitViewController!
+    var splitController: IndexDetailViewController!
     var indexController: DatastoreIndexController!
-    var detailNavigationController: UINavigationController!
     var skipDefault = true
 
     override func viewDidLoad() {
@@ -35,23 +35,14 @@ class DocumentViewController: UIViewController {
         let name = document.fileURL.deletingPathExtension().lastPathComponent
         self.documentNameLabel.text = name
 
-        splitController = UISplitViewController()
-        splitController.delegate = self
-        splitController.preferredDisplayMode = .allVisible
+        splitController = IndexDetailViewController()
 
         indexController = DatastoreIndexController()
-        let indexNavigationController = UINavigationController(rootViewController: indexController)
-        indexNavigationController.title = "Master"
-        indexNavigationController.isNavigationBarHidden = false
-        
         let noSelectionController = storyboard!.instantiateViewController(identifier: "NoSelection")
-        noSelectionController.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem
 
-        detailNavigationController = UINavigationController(rootViewController: noSelectionController)
-        detailNavigationController.title = "Detail"
-        detailNavigationController.delegate = self
+        splitController.indexController = indexController
+        splitController.detailRootController = noSelectionController
         
-        splitController.viewControllers = [indexNavigationController, detailNavigationController]
         contentStack.addArrangedSubview(splitController.view)
         addChild(splitController)
 
@@ -60,17 +51,14 @@ class DocumentViewController: UIViewController {
     }
     
     func show(entity: EntityReference) {
-        if let store = document?.store, let navigation = splitController.viewControllers.last as? UINavigationController {
-            let isCollapsed = splitController.isCollapsed
+        if let store = document?.store {
             store.get(allPropertiesOf: [entity]) { results in
                 let fetched = results[0]
                 let keys = Array(fetched.keys)
                 let sections = [keys]
                 DispatchQueue.main.async {
                     let detail = DatastorePropertyController(for: fetched, sections: sections, store: store)
-                    navigation.popToRootViewController(animated: false)
-                    navigation.pushViewController(detail, animated: isCollapsed)
-                    navigation.isNavigationBarHidden = !isCollapsed
+                    self.splitController.showDetail(detail)
                 }
             }
         }
@@ -94,31 +82,5 @@ extension DocumentViewController: UINavigationControllerDelegate {
         if navigationController.viewControllers.count == 1 {
             navigationController.isNavigationBarHidden = !splitController.isCollapsed
         }
-    }
-}
-
-extension DocumentViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
-        documentViewChannel.log("changing to \(displayMode)")
-        switch displayMode {
-            case .allVisible:
-                detailNavigationController.isNavigationBarHidden = !svc.isCollapsed && (detailNavigationController.viewControllers.count == 1)
-            case .primaryHidden:
-                detailNavigationController.isNavigationBarHidden = false
-            default:
-                break
-        }
-    }
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        print("collapsing \(secondaryViewController) onto \(primaryViewController)")
-        guard let nav = primaryViewController as? UINavigationController, let _ = nav.topViewController as? DatastoreIndexController else {
-            return true
-        }
-
-        documentViewChannel.log("collapsing")
-        let shouldSkipDefaultBehaviour = skipDefault
-        skipDefault = false
-        return shouldSkipDefaultBehaviour
     }
 }
