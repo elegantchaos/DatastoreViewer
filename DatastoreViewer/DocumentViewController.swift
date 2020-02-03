@@ -38,6 +38,12 @@ class DocumentViewController: UIViewController {
         splitController = IndexDetailViewController()
 
         indexController = DatastoreIndexController()
+        indexController.filterTypes = document.types
+        indexController.onSelect = { entity in
+            self.show(entity: entity)
+            return self.splitController.isCollapsed
+        }
+        
         let noSelectionController = storyboard!.instantiateViewController(identifier: "NoSelection")
 
         splitController.indexController = indexController
@@ -46,8 +52,6 @@ class DocumentViewController: UIViewController {
         contentStack.addArrangedSubview(splitController.view)
         addChild(splitController)
 
-        indexController.filterTypes = document.types
-        indexController.onSelect = { entity in self.show(entity: entity) }
     }
     
     func show(entity: EntityReference) {
