@@ -41,13 +41,14 @@ class DocumentViewController: UIViewController {
         indexController.filterTypes = document.types
         indexController.onSelect = { entity in
             self.show(entity: entity)
-            return self.splitController.isCollapsed
+            return false
         }
         
         let noSelectionController = storyboard!.instantiateViewController(identifier: "NoSelection")
 
         splitController.indexController = indexController
         splitController.detailRootController = noSelectionController
+        splitController.delegate = self
         
         contentStack.addArrangedSubview(splitController.view)
         addChild(splitController)
@@ -85,6 +86,14 @@ extension DocumentViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if navigationController.viewControllers.count == 1 {
             navigationController.isNavigationBarHidden = !splitController.isCollapsed
+        }
+    }
+}
+
+extension DocumentViewController: IndexDetailViewControllerDelegate {
+    func indexDetailViewController(_ indexDetailViewController: IndexDetailViewController, willShowView viewController: UIViewController, ofType type: IndexDetailViewController.ViewType) {
+        if type == .index {
+            indexController?.clearSelection(animated: true)
         }
     }
 }
