@@ -58,12 +58,12 @@ class DocumentViewController: UIViewController {
     func show(entity: EntityReference) {
         if let store = document?.store {
             store.get(allPropertiesOf: [entity]) { results in
-                let fetched = results[0]
-                let keys = Array(fetched.keys)
-                let sections = [keys]
+                if let fetched = results[0].properties {
+                let layout = DatastorePropertyLayout(with: fetched, from: store)
                 DispatchQueue.main.async {
-                    let detail = DatastorePropertyController(for: fetched, sections: sections, store: store)
+                    let detail = DatastorePropertyController(layout: layout)
                     self.splitController.showDetail(detail)
+                }
                 }
             }
         }

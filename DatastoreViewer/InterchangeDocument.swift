@@ -34,7 +34,7 @@ class InterchangeDocument: UIDocument {
     
     var json = InterchangeDocument.sampleJSON
     var store: Datastore? = nil
-    var types: [EntityType] = []
+    var types: [DatastoreType] = []
     
     override func open(completionHandler: ((Bool) -> Void)? = nil) {
         super.open() { result in
