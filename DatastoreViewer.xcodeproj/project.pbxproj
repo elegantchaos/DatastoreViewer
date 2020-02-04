@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		8B1218D123DF0A1F0044845C /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1218D023DF0A1F0044845C /* LoggerKit */; };
 		8B1218D323DF0A1F0044845C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1218D223DF0A1F0044845C /* Logger */; };
-		8B35DE1623E9CB66006DA528 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35DE1523E9CB66006DA528 /* SceneDelegate.swift */; };
+		8B35DE1623E9CB66006DA528 /* DatastoreViewerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35DE1523E9CB66006DA528 /* DatastoreViewerScene.swift */; };
 		8B4ECBF623E8363500834418 /* IndexDetailViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4ECBF523E8363500834418 /* IndexDetailViewController */; };
-		8B593D7123ACEA040090AC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7023ACEA040090AC60 /* AppDelegate.swift */; };
+		8B593D7123ACEA040090AC60 /* DatastoreViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7023ACEA040090AC60 /* DatastoreViewer.swift */; };
 		8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */; };
 		8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7423ACEA040090AC60 /* DocumentViewController.swift */; };
 		8B593D7723ACEA040090AC60 /* InterchangeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */; };
@@ -45,10 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B35DE1523E9CB66006DA528 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8B35DE1523E9CB66006DA528 /* DatastoreViewerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreViewerScene.swift; sourceTree = "<group>"; };
 		8B55AE1923D1DB9600B51C66 /* DatastoreViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DatastoreViewer.entitlements; sourceTree = "<group>"; };
 		8B593D6D23ACEA040090AC60 /* DatastoreViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatastoreViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B593D7023ACEA040090AC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B593D7023ACEA040090AC60 /* DatastoreViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreViewer.swift; sourceTree = "<group>"; };
 		8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		8B593D7423ACEA040090AC60 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterchangeDocument.swift; sourceTree = "<group>"; };
@@ -122,18 +122,18 @@
 		8B593D6F23ACEA040090AC60 /* DatastoreViewer */ = {
 			isa = PBXGroup;
 			children = (
-				8B55AE1923D1DB9600B51C66 /* DatastoreViewer.entitlements */,
-				8B593D7023ACEA040090AC60 /* AppDelegate.swift */,
-				8B35DE1523E9CB66006DA528 /* SceneDelegate.swift */,
-				8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */,
-				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
-				8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */,
-				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
-				8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */,
-				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B593D7B23ACEA050090AC60 /* Assets.xcassets */,
-				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
+				8B55AE1923D1DB9600B51C66 /* DatastoreViewer.entitlements */,
+				8B593D7023ACEA040090AC60 /* DatastoreViewer.swift */,
+				8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */,
+				8B35DE1523E9CB66006DA528 /* DatastoreViewerScene.swift */,
+				8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */,
+				8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */,
+				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
 				8B593D8023ACEA050090AC60 /* Info.plist */,
+				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
+				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
+				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B59BC7323D7215E007185B9 /* SampleData.json */,
 			);
 			path = DatastoreViewer;
@@ -314,8 +314,8 @@
 				8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */,
 				8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */,
 				8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */,
-				8B593D7123ACEA040090AC60 /* AppDelegate.swift in Sources */,
-				8B35DE1623E9CB66006DA528 /* SceneDelegate.swift in Sources */,
+				8B593D7123ACEA040090AC60 /* DatastoreViewer.swift in Sources */,
+				8B35DE1623E9CB66006DA528 /* DatastoreViewerScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
