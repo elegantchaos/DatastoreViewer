@@ -25,28 +25,28 @@ enum DocumentError: Error {
   }
 }
 
+protocol DocumentWithStore: UIDocument {
+    var documentStore: Datastore { get }
+}
+
 class InterchangeDocument: UIDocument {
     static let filenameExtension = "store-interchange"
 
-    static var sampleJSON: String {
-        Bundle.main.stringResource(named: "SampleData", withExtension: "json")
-    }
-    
-    var json = InterchangeDocument.sampleJSON
-    var store: Datastore? = nil
+    var json = DatastoreViewer.sampleJSON
+    var container: ContainerWithStore? = nil
     var types: [DatastoreType] = []
     
     override func open(completionHandler: ((Bool) -> Void)? = nil) {
         super.open() { result in
             if (result) {
-                Datastore.load(name: self.fileURL.lastPathComponent, json: self.json) { result in
+                DatastoreContainer.load(name: self.fileURL.lastPathComponent, json: self.json) { result in
                     switch result {
                         case .failure:
                             completionHandler?(false)
                         
-                        case .success(let store):
-                            store.getAllEntityTypes() { types in
-                                self.store = store
+                        case .success(let container):
+                            container.store.getAllEntityTypes() { types in
+                                self.container = container
                                 self.types = types
                                 DispatchQueue.main.async {
                                     completionHandler?(true)
@@ -81,3 +81,6 @@ class InterchangeDocument: UIDocument {
     }
 }
 
+extension InterchangeDocument: DocumentWithStore {
+    var documentStore: Datastore { return container!.store }
+}

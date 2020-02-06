@@ -7,6 +7,10 @@ import UIKit
 import ApplicationExtensions
 
 @UIApplicationMain class DatastoreViewer: BasicApplication {
+    class var sampleJSON: String {
+        Bundle.main.stringResource(named: "SampleData", withExtension: "json")
+    }
+
     override func open(file url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         // Reveal / import the document at the URL
         guard let documentBrowserViewController = window?.rootViewController as? DocumentBrowserViewController else { return false }

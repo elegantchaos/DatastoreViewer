@@ -25,6 +25,7 @@
 		8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */; };
 		8B59BC7423D7215E007185B9 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B59BC7323D7215E007185B9 /* SampleData.json */; };
 		8B59BC7723D7231E007185B9 /* ApplicationExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B59BC7623D7231E007185B9 /* ApplicationExtensions */; };
+		8B5C28EA23EC2ABD00E2EB7E /* StoreDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C28E923EC2ABD00E2EB7E /* StoreDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		8B593D9623ACEA050090AC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFailedViewController.swift; sourceTree = "<group>"; };
 		8B59BC7323D7215E007185B9 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
+		8B5C28E923EC2ABD00E2EB7E /* StoreDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDocument.swift; sourceTree = "<group>"; };
 		8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatastoreViewer.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 				8B593D7423ACEA040090AC60 /* DocumentViewController.swift */,
 				8B593D8023ACEA050090AC60 /* Info.plist */,
 				8B593D7623ACEA040090AC60 /* InterchangeDocument.swift */,
+				8B5C28E923EC2ABD00E2EB7E /* StoreDocument.swift */,
 				8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */,
 				8B593D7823ACEA040090AC60 /* Main.storyboard */,
 				8B59BC7323D7215E007185B9 /* SampleData.json */,
@@ -314,6 +317,7 @@
 				8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */,
 				8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */,
 				8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */,
+				8B5C28EA23EC2ABD00E2EB7E /* StoreDocument.swift in Sources */,
 				8B593D7123ACEA040090AC60 /* DatastoreViewer.swift in Sources */,
 				8B35DE1623E9CB66006DA528 /* DatastoreViewerScene.swift in Sources */,
 			);

@@ -19,7 +19,9 @@ class DocumentViewController: UIViewController {
     @IBOutlet weak var contentStack: UIStackView!
     @IBOutlet weak var documentNameLabel: UILabel!
     
-    var document: InterchangeDocument?
+    var document: UIDocument?
+    var store: Datastore?
+    var types: [DatastoreType] = []
     var splitController: IndexDetailViewController!
     var indexController: DatastoreIndexController!
     var skipDefault = true
@@ -38,7 +40,7 @@ class DocumentViewController: UIViewController {
         splitController = IndexDetailViewController()
 
         indexController = DatastoreIndexController()
-        indexController.filterTypes = document.types
+        indexController.filterTypes = types
         indexController.onSelect = { entity in
             self.show(entity: entity)
             return false
@@ -56,7 +58,7 @@ class DocumentViewController: UIViewController {
     }
     
     func show(entity: EntityReference) {
-        if let store = document?.store {
+        if let store = store {
             store.get(allPropertiesOf: [entity]) { results in
                 if let fetched = results[0].properties {
                 let layout = DatastorePropertyLayout(with: fetched, from: store)
@@ -78,7 +80,7 @@ class DocumentViewController: UIViewController {
 
 extension DocumentViewController: DatastoreViewContextSupplier {
     var viewDatastore: Datastore {
-        return document!.store!
+        return store!
     }
 }
 

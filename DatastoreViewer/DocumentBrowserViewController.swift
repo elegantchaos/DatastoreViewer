@@ -5,6 +5,7 @@
 
 import UIKit
 import Logger
+import DatastoreKit
 
 let documentBrowserChannel = Channel("DocumentBrowser", handlers: [OSLogHandler()])
 
@@ -44,18 +45,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: UIDocumentBrowserViewControllerDelegate
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        
-        let url = UIApplication.newDocumentURL(withPathExtension: "store-interchange")
-        let document = InterchangeDocument(fileURL: url)
-        
-        document.save(to: url, for: .forCreating) { saveResult in
-            guard saveResult else {
-                importHandler(nil, .none)
-                return
-            }
-
-            importHandler(url, .move)
-        }
+        StoreDocument.createForDocumentBrowser(withPathExtension: "store", importHandler: importHandler)
     }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
@@ -79,21 +69,41 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func presentDocument(at documentURL: URL) {
         restoreLastDocument = false
-        let document = InterchangeDocument(fileURL: documentURL)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        document.open(completionHandler: { (success) in
-            if success {
-                let defaults = UserDefaults.standard
-                defaults.set(documentURL, forKey: self.lastDocumentKey)
-                
-                let controller = storyboard.instantiateViewController(withIdentifier: "Document") as! DocumentViewController
-                controller.document = document
-                self.present(documentController: controller)
-            } else {
-                let controller = storyboard.instantiateViewController(withIdentifier: "DocumentFailed") as! DocumentFailedViewController
-                self.present(documentController: controller)
-            }
-        })
+        
+        let document: DocumentWithStore?
+        switch documentURL.pathExtension {
+            case "store-interchange":
+                document = InterchangeDocument(fileURL: documentURL)
+            
+            case "store":
+                document = StoreDocument(fileURL: documentURL)
+            
+            default:
+                document = nil
+        }
+        
+        if let document = document {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            document.open(completionHandler: { (success) in
+                if success {
+                    let store = document.documentStore
+                    store.getAllEntityTypes() { types in
+                        DispatchQueue.main.async {
+                            let defaults = UserDefaults.standard
+                            defaults.set(documentURL, forKey: self.lastDocumentKey)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "Document") as! DocumentViewController
+                            controller.document = document
+                            controller.store = store
+                            controller.types = types
+                            self.present(documentController: controller)
+                        }
+                    }
+                } else {
+                    let controller = storyboard.instantiateViewController(withIdentifier: "DocumentFailed") as! DocumentFailedViewController
+                    self.present(documentController: controller)
+                }
+            })
+        }
     }
     
     func present(documentController controller: UIViewController) {
@@ -102,10 +112,10 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     }
     
     func restoreLastDocumentIfNecessary() {
-        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: lastDocumentKey) {
-            documentBrowserChannel.debug("restoring previous document \(lastURL)")
-            presentDocument(at: lastURL)
-        }
+//        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: lastDocumentKey) {
+//            documentBrowserChannel.debug("restoring previous document \(lastURL)")
+//            presentDocument(at: lastURL)
+//        }
     }
     
 }
