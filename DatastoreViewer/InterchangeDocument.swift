@@ -3,9 +3,10 @@
 //  All code (c) 2019 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-import UIKit
-import Datastore
 import ApplicationExtensions
+import Datastore
+import DatastoreKit
+import UIKit
 
 enum DocumentError: Error {
   case unrecognizedContent
@@ -25,12 +26,8 @@ enum DocumentError: Error {
   }
 }
 
-protocol DocumentWithStore: UIDocument {
-    var documentStore: Datastore { get }
-}
-
 class InterchangeDocument: UIDocument {
-    static let filenameExtension = "store-interchange"
+    static let pathExtension = "store-interchange"
 
     var json = DatastoreViewer.sampleJSON
     var container: ContainerWithStore? = nil
@@ -81,6 +78,8 @@ class InterchangeDocument: UIDocument {
     }
 }
 
-extension InterchangeDocument: DocumentWithStore {
-    var documentStore: Datastore { return container!.store }
+extension InterchangeDocument: DatastoreSupplierDocument {
+    var suppliedDatastore: Datastore {
+        return container!.store
+    }
 }

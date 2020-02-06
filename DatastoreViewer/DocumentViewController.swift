@@ -78,8 +78,8 @@ class DocumentViewController: UIViewController {
     }
 }
 
-extension DocumentViewController: DatastoreViewContextSupplier {
-    var viewDatastore: Datastore {
+extension DocumentViewController: DatastoreSupplier {
+    var suppliedDatastore: Datastore {
         return store!
     }
 }

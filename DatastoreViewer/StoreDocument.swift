@@ -8,6 +8,7 @@ import DatastoreKit
 import UIKit
 
 class StoreDocument: DatastoreDocument {
+    static let pathExtension = "store"
     
     override func save(to url: URL, for saveOperation: UIDocument.SaveOperation, completionHandler: ((Bool) -> Void)? = nil) {
         guard saveOperation == .forCreating else {
@@ -26,12 +27,5 @@ class StoreDocument: DatastoreDocument {
                     super.save(to: url, for: saveOperation, completionHandler: completionHandler)
             }
         }
-    }
-}
-
-
-extension StoreDocument: DocumentWithStore {
-    var documentStore: Datastore {
-      get { return super.store }
     }
 }
