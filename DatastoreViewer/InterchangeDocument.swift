@@ -29,7 +29,7 @@ enum DocumentError: Error {
 class InterchangeDocument: UIDocument {
     static let pathExtension = "store-interchange"
 
-    var json = DatastoreViewer.sampleJSON
+    var json = ""
     var container: ContainerWithStore? = nil
     var types: [DatastoreType] = []
     

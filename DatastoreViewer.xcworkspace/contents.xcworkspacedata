@@ -8,6 +8,9 @@
       location = "group:../ApplicationExtensions">
    </FileRef>
    <FileRef
+      location = "group:../CollectionExtensions">
+   </FileRef>
+   <FileRef
       location = "group:../Datastore">
    </FileRef>
    <FileRef

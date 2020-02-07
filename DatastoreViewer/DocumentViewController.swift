@@ -3,12 +3,13 @@
 //  All code (c) 2020 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-import UIKit
+import ApplicationExtensions
 import Datastore
 import DatastoreKit
 import IndexDetailViewController
 import Logger
 import ViewExtensions
+import UIKit
 
 let documentViewChannel = Channel("DocumentView")
 
@@ -68,6 +69,38 @@ class DocumentViewController: UIViewController {
                 }
                 }
             }
+        }
+    }
+    
+    @IBAction func exportDocument(_ sender: Any) {
+        class ExportHandler: NSObject, DocumentExportHandler {
+            let json: String
+            let presenter: UIViewController
+            
+            init(json: String, presenter: UIViewController) {
+                self.json = json
+                self.presenter = presenter
+            }
+            
+            func prepareExport(forDocument document: UIDocument) {
+                if let interchange = document as? InterchangeDocument {
+                    interchange.json = json
+                }
+            }
+            
+            func presentFailure(forDocument: UIDocument) {
+                let alertController = UIAlertController(title: "Cannot export data", message: nil, preferredStyle: .alert)
+                presenter.present(alertController, animated: true, completion: nil)
+            }
+            
+            func presentPicker(_ picker: UIDocumentPickerViewController, forDocument: UIDocument) {
+                presenter.present(picker, animated: true, completion: nil)
+            }
+        }
+        
+        store?.encodeJSON() { json in
+            let handler = ExportHandler(json: json, presenter: self)
+            InterchangeDocument.createForExport(withPathExtension: InterchangeDocument.pathExtension, handler: handler)
         }
     }
     

@@ -112,7 +112,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     }
     
     func restoreLastDocumentIfNecessary() {
-        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: lastDocumentKey) {
+        if restoreLastDocument, let lastURL = UserDefaults.standard.url(forKey: lastDocumentKey), FileManager.default.fileExists(atPath: lastURL.path) {
             documentBrowserChannel.debug("restoring previous document \(lastURL)")
             presentDocument(at: lastURL)
         }
