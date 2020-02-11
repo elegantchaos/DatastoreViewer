@@ -7,12 +7,6 @@ jobs:
   macos:
     name: Mac
     runs-on: macOS-latest
-    strategy:
-      matrix:
-        config: [debug, release]
-        include:
-        - config: release
-          args:  -Xswiftc -enable-testing
     steps:
     - name: Checkout
       uses: actions/checkout@v1
