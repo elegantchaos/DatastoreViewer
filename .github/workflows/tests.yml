@@ -14,10 +14,12 @@ jobs:
       run: swift --version
     - name: Xcode Version
       run: xcodebuild -version
+    - name: XC Pretty
+      run: sudo gem install xcpretty-travis-formatter
     - name: Configure Git
       run: 'git config --global url.https://github.com/.insteadOf git@github.com:'
     - name: Build (iOS)
-      run: xcodebuild build -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer -destination "name=iPad Pro (11-inch)" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild build -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer -destination "name=iPad Pro (11-inch)" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | tee xcodebuild.log | xcpretty
     - name: Build (macOS)
       run: xcodebuild build -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
     - name: Slack Notification
