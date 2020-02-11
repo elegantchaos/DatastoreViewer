@@ -68,6 +68,7 @@
 		8B59BC7323D7215E007185B9 /* SampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleData.json; sourceTree = "<group>"; };
 		8B5C28E923EC2ABD00E2EB7E /* StoreDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDocument.swift; sourceTree = "<group>"; };
 		8B78D82E23D9B4A200F84616 /* DatastoreViewer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DatastoreViewer.xctestplan; sourceTree = "<group>"; };
+		8BEEB1C723F31593005466D9 /* tests.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = tests.yml; path = .github/workflows/tests.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,7 @@
 		8B593D6423ACEA040090AC60 = {
 			isa = PBXGroup;
 			children = (
+				8BEEB1C723F31593005466D9 /* tests.yml */,
 				8B593D6F23ACEA040090AC60 /* DatastoreViewer */,
 				8B593D8823ACEA050090AC60 /* DatastoreViewerTests */,
 				8B593D9323ACEA050090AC60 /* DatastoreViewerUITests */,

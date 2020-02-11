@@ -13,7 +13,7 @@ jobs:
     - name: Swift Version
       run: swift --version
     - name: Xcode Version
-      run: xcodebuild --version
+      run: xcodebuild -version
     - name: Configure Git
       run: 'git config --global url.https://github.com/.insteadOf git@github.com:'
     - name: Build (iOS)
