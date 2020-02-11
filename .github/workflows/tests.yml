@@ -1,13 +1,32 @@
 name: Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
 
+  macos:
+    name: Mac
     runs-on: macOS-latest
-
+    strategy:
+      matrix:
+        config: [debug, release]
+        include:
+        - config: release
+          args:  -Xswiftc -enable-testing
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Swift Version
+      run: swift --version
+    - name: Build (macOS)
+      run: xcodebuild -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer
+    - name: Build (iOS)
+      run: xcodebuild -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer -destination "name=iPad Pro (11-inch)"
+    - name: Slack Notification
+      uses: elegantchaos/slatify@master
+      if: always()
+      with:
+          type: ${{ job.status }}
+          job_name: 'Build (${{ matrix.config }})'
+          mention_if: 'failure'
+          url: ${{ secrets.SLACK_WEBHOOK }}
