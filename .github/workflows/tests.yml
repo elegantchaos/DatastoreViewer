@@ -12,6 +12,8 @@ jobs:
       uses: actions/checkout@v1
     - name: Swift Version
       run: swift --version
+    - name: Configure Git
+      run: git config --global url."https://github.com/".insteadOf git@github.com:
     - name: Build (macOS)
       run: xcodebuild -workspace DatastoreViewer.xcworkspace -scheme DatastoreViewer
     - name: Build (iOS)
