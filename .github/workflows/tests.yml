@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
 
   macos:
-    name: Mac
+    name: Mac Build
     runs-on: macOS-latest
     steps:
     - name: Checkout

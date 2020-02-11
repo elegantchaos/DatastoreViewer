@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B1218D123DF0A1F0044845C /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1218D023DF0A1F0044845C /* LoggerKit */; };
-		8B1218D323DF0A1F0044845C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 8B1218D223DF0A1F0044845C /* Logger */; };
 		8B35DE1623E9CB66006DA528 /* DatastoreViewerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35DE1523E9CB66006DA528 /* DatastoreViewerScene.swift */; };
-		8B4ECBF623E8363500834418 /* IndexDetailViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4ECBF523E8363500834418 /* IndexDetailViewController */; };
+		8B4C5C3123F30B500093D9E0 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3023F30B500093D9E0 /* Datastore */; };
+		8B4C5C3323F30B500093D9E0 /* DatastoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3223F30B500093D9E0 /* DatastoreKit */; };
+		8B4C5C3623F30B700093D9E0 /* ApplicationExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3523F30B700093D9E0 /* ApplicationExtensions */; };
+		8B4C5C3923F30B910093D9E0 /* IndexDetailViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3823F30B910093D9E0 /* IndexDetailViewController */; };
+		8B4C5C3C23F30BA90093D9E0 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3B23F30BA90093D9E0 /* Logger */; };
+		8B4C5C3E23F30BA90093D9E0 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4C5C3D23F30BA90093D9E0 /* LoggerKit */; };
 		8B593D7123ACEA040090AC60 /* DatastoreViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7023ACEA040090AC60 /* DatastoreViewer.swift */; };
 		8B593D7323ACEA040090AC60 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7223ACEA040090AC60 /* DocumentBrowserViewController.swift */; };
 		8B593D7523ACEA040090AC60 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D7423ACEA040090AC60 /* DocumentViewController.swift */; };
@@ -20,11 +23,9 @@
 		8B593D7F23ACEA050090AC60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B593D7D23ACEA050090AC60 /* LaunchScreen.storyboard */; };
 		8B593D8A23ACEA050090AC60 /* DatastoreViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D8923ACEA050090AC60 /* DatastoreViewerTests.swift */; };
 		8B593D9523ACEA050090AC60 /* DatastoreViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B593D9423ACEA050090AC60 /* DatastoreViewerUITests.swift */; };
-		8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA323ACEAB90090AC60 /* Datastore */; };
 		8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B593DA823AD2A0C0090AC60 /* DatastoreKit */; };
 		8B598ADA23CCBE9F005873E1 /* DocumentFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B598AD923CCBE9F005873E1 /* DocumentFailedViewController.swift */; };
 		8B59BC7423D7215E007185B9 /* SampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B59BC7323D7215E007185B9 /* SampleData.json */; };
-		8B59BC7723D7231E007185B9 /* ApplicationExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8B59BC7623D7231E007185B9 /* ApplicationExtensions */; };
 		8B5C28EA23EC2ABD00E2EB7E /* StoreDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C28E923EC2ABD00E2EB7E /* StoreDocument.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,11 +75,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1218D323DF0A1F0044845C /* Logger in Frameworks */,
-				8B4ECBF623E8363500834418 /* IndexDetailViewController in Frameworks */,
-				8B593DA423ACEAB90090AC60 /* Datastore in Frameworks */,
-				8B1218D123DF0A1F0044845C /* LoggerKit in Frameworks */,
-				8B59BC7723D7231E007185B9 /* ApplicationExtensions in Frameworks */,
+				8B4C5C3C23F30BA90093D9E0 /* Logger in Frameworks */,
+				8B4C5C3623F30B700093D9E0 /* ApplicationExtensions in Frameworks */,
+				8B4C5C3323F30B500093D9E0 /* DatastoreKit in Frameworks */,
+				8B4C5C3123F30B500093D9E0 /* Datastore in Frameworks */,
+				8B4C5C3923F30B910093D9E0 /* IndexDetailViewController in Frameworks */,
+				8B4C5C3E23F30BA90093D9E0 /* LoggerKit in Frameworks */,
 				8B593DA923AD2A0C0090AC60 /* DatastoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,12 +186,13 @@
 			);
 			name = DatastoreViewer;
 			packageProductDependencies = (
-				8B593DA323ACEAB90090AC60 /* Datastore */,
 				8B593DA823AD2A0C0090AC60 /* DatastoreKit */,
-				8B59BC7623D7231E007185B9 /* ApplicationExtensions */,
-				8B1218D023DF0A1F0044845C /* LoggerKit */,
-				8B1218D223DF0A1F0044845C /* Logger */,
-				8B4ECBF523E8363500834418 /* IndexDetailViewController */,
+				8B4C5C3023F30B500093D9E0 /* Datastore */,
+				8B4C5C3223F30B500093D9E0 /* DatastoreKit */,
+				8B4C5C3523F30B700093D9E0 /* ApplicationExtensions */,
+				8B4C5C3823F30B910093D9E0 /* IndexDetailViewController */,
+				8B4C5C3B23F30BA90093D9E0 /* Logger */,
+				8B4C5C3D23F30BA90093D9E0 /* LoggerKit */,
 			);
 			productName = DatastoreViewer;
 			productReference = 8B593D6D23ACEA040090AC60 /* DatastoreViewer.app */;
@@ -264,10 +267,10 @@
 			);
 			mainGroup = 8B593D6423ACEA040090AC60;
 			packageReferences = (
-				8B593DA223ACEAB90090AC60 /* XCRemoteSwiftPackageReference "Datastore" */,
-				8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */,
-				8B1218CF23DF0A1F0044845C /* XCRemoteSwiftPackageReference "Logger" */,
-				8B4ECBF423E8363500834418 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */,
+				8B4C5C2F23F30B500093D9E0 /* XCRemoteSwiftPackageReference "Datastore" */,
+				8B4C5C3423F30B700093D9E0 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */,
+				8B4C5C3723F30B910093D9E0 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */,
+				8B4C5C3A23F30BA90093D9E0 /* XCRemoteSwiftPackageReference "Logger" */,
 			);
 			productRefGroup = 8B593D6E23ACEA040090AC60 /* Products */;
 			projectDirPath = "";
@@ -656,69 +659,74 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8B1218CF23DF0A1F0044845C /* XCRemoteSwiftPackageReference "Logger" */ = {
+		8B4C5C2F23F30B500093D9E0 /* XCRemoteSwiftPackageReference "Datastore" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:elegantchaos/Logger.git";
+			repositoryURL = "https://github.com/elegantchaos/Datastore.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.0;
+				minimumVersion = 1.2.3;
 			};
 		};
-		8B4ECBF423E8363500834418 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */ = {
+		8B4C5C3423F30B700093D9E0 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:elegantchaos/IndexDetailViewController.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
-		8B593DA223ACEAB90090AC60 /* XCRemoteSwiftPackageReference "Datastore" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:elegantchaos/Datastore.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
-		8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:elegantchaos/ApplicationExtensions.git";
+			repositoryURL = "https://github.com/elegantchaos/ApplicationExtensions.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.1;
 			};
 		};
+		8B4C5C3723F30B910093D9E0 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/IndexDetailViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		8B4C5C3A23F30BA90093D9E0 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/Logger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8B1218D023DF0A1F0044845C /* LoggerKit */ = {
+		8B4C5C3023F30B500093D9E0 /* Datastore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B1218CF23DF0A1F0044845C /* XCRemoteSwiftPackageReference "Logger" */;
-			productName = LoggerKit;
+			package = 8B4C5C2F23F30B500093D9E0 /* XCRemoteSwiftPackageReference "Datastore" */;
+			productName = Datastore;
 		};
-		8B1218D223DF0A1F0044845C /* Logger */ = {
+		8B4C5C3223F30B500093D9E0 /* DatastoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B1218CF23DF0A1F0044845C /* XCRemoteSwiftPackageReference "Logger" */;
-			productName = Logger;
+			package = 8B4C5C2F23F30B500093D9E0 /* XCRemoteSwiftPackageReference "Datastore" */;
+			productName = DatastoreKit;
 		};
-		8B4ECBF523E8363500834418 /* IndexDetailViewController */ = {
+		8B4C5C3523F30B700093D9E0 /* ApplicationExtensions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B4ECBF423E8363500834418 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */;
+			package = 8B4C5C3423F30B700093D9E0 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */;
+			productName = ApplicationExtensions;
+		};
+		8B4C5C3823F30B910093D9E0 /* IndexDetailViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4C5C3723F30B910093D9E0 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */;
 			productName = IndexDetailViewController;
 		};
-		8B593DA323ACEAB90090AC60 /* Datastore */ = {
+		8B4C5C3B23F30BA90093D9E0 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B593DA223ACEAB90090AC60 /* XCRemoteSwiftPackageReference "Datastore" */;
-			productName = Datastore;
+			package = 8B4C5C3A23F30BA90093D9E0 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
+		};
+		8B4C5C3D23F30BA90093D9E0 /* LoggerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B4C5C3A23F30BA90093D9E0 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = LoggerKit;
 		};
 		8B593DA823AD2A0C0090AC60 /* DatastoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DatastoreKit;
-		};
-		8B59BC7623D7231E007185B9 /* ApplicationExtensions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8B59BC7523D7231E007185B9 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */;
-			productName = ApplicationExtensions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
