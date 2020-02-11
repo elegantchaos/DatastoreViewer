@@ -2,12 +2,84 @@
   "object": {
     "pins": [
       {
+        "package": "ApplicationExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ApplicationExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "c335a0795faf4896e867991c00af7082c2bf00c6",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "CollectionExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/CollectionExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "ad0cd0c0782fe49ea9041fa1265378f03d1327cc",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Datastore",
+        "repositoryURL": "https://github.com/elegantchaos/Datastore.git",
+        "state": {
+          "branch": null,
+          "revision": "3f6921ed4a4aeb5b3ace8dbcd467b6168d668356",
+          "version": "1.2.4"
+        }
+      },
+      {
+        "package": "IndexDetailViewController",
+        "repositoryURL": "https://github.com/elegantchaos/IndexDetailViewController.git",
+        "state": {
+          "branch": null,
+          "revision": "6c1ce55c25ce7d9396d5a80669bbd18858bb3beb",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "LayoutExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/LayoutExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "83221ab90e37b3fb4a8f145f81825cbf590603da",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/elegantchaos/Logger.git",
+        "state": {
+          "branch": null,
+          "revision": "be1cf7bd88380025755329e3ab1bcfebef7f9a46",
+          "version": "1.4.1"
+        }
+      },
+      {
+        "package": "Performance",
+        "repositoryURL": "https://github.com/elegantchaos/Performance.git",
+        "state": {
+          "branch": null,
+          "revision": "ee895c9b5cfbc12ed2ab6fd73e927f48c75e3994",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "ViewExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ViewExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "0b32bb176ffc206203d1cb5bc1a666f4505ac348",
+          "version": "1.0.4"
+        }
+      },
+      {
         "package": "XCTestExtensions",
         "repositoryURL": "https://github.com/elegantchaos/XCTestExtensions.git",
         "state": {
           "branch": null,
-          "revision": "ee60f51053db8a0f513e7f593668a65867d79311",
-          "version": "1.0.7"
+          "revision": "504bf1d5cfe059e5a9db9c328097b4982a90a97e",
+          "version": "1.0.8"
         }
       }
     ]

@@ -664,7 +664,7 @@
 			repositoryURL = "https://github.com/elegantchaos/Datastore.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.3;
+				minimumVersion = 1.2.4;
 			};
 		};
 		8B4C5C3423F30B700093D9E0 /* XCRemoteSwiftPackageReference "ApplicationExtensions" */ = {
@@ -672,7 +672,7 @@
 			repositoryURL = "https://github.com/elegantchaos/ApplicationExtensions.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.0.2;
 			};
 		};
 		8B4C5C3723F30B910093D9E0 /* XCRemoteSwiftPackageReference "IndexDetailViewController" */ = {
@@ -680,7 +680,7 @@
 			repositoryURL = "https://github.com/elegantchaos/IndexDetailViewController.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.4;
 			};
 		};
 		8B4C5C3A23F30BA90093D9E0 /* XCRemoteSwiftPackageReference "Logger" */ = {
